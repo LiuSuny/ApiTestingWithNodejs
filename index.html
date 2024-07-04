@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty Characters</title>
+</head>
+<body>
+    <h1>Insert Rick and Morty Characters</h1>
+    <button id="fetchAndInsertButton">Fetch and Insert Characters</button>
+    
+    <script>
+        document.getElementById('fetchAndInsertButton').addEventListener('click', () => {
+            fetch('/api/fetchAndInsert', {
+                method: 'POST',
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while fetching and inserting characters.');
+            });
+        });
+    </script>
+</body>
+</html>
